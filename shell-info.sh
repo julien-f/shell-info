@@ -40,16 +40,16 @@
 		'' \
 		'${#VAR}' \
 		'' \
-		'${VAR:-word}' \
-		'${VAR:=word}' \
-		'${VAR:?word}' \
-		'${VAR:+word}' \
+		'${VAR-word}' '${VAR:-word}' \
+		'${VAR=word}' '${VAR:=word}' \
+		'${VAR?word}' '${VAR:?word}' \
+		'${VAR+word}' '${VAR:+word}' \
 		'' \
 		'${VAR#pattern}' '${VAR##pattern}' \
 		'${VAR%pattern}' '${VAR%%pattern}' \
 		'' \
 		'${!VAR}' \
-		'${VAR/pattern/string}' \
+		'${VAR/pattern/string}' '${VAR//pattern/string}' \
 		'${VAR^pattern}' '${VAR^^pattern}' \
 		'${VAR,pattern}' '${VAR,,pattern}' \
 		'${VAR:1}' '${VAR:1:1}' \

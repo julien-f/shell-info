@@ -19,9 +19,13 @@ And here are the results for “dash”:
 	--
 	${#VAR}                       yes
 	--
+	${VAR-word}                   yes
 	${VAR:-word}                  yes
+	${VAR=word}                   yes
 	${VAR:=word}                  yes
+	${VAR?word}                   yes
 	${VAR:?word}                  yes
+	${VAR+word}                   yes
 	${VAR:+word}                  yes
 	--
 	${VAR#pattern}                yes
@@ -31,12 +35,17 @@ And here are the results for “dash”:
 	--
 	${!VAR}                       no
 	${VAR/pattern/string}         no
+	${VAR//pattern/string}        no
 	${VAR^pattern}                no
 	${VAR^^pattern}               no
 	${VAR,pattern}                no
 	${VAR,,pattern}               no
 	${VAR:1}                      no
 	${VAR:1:1}                    no
+	--
+	$([[ $VAR == * ]])            no
+	$([[ $VAR =~ . ]])            no
+
 
 # Compatibility
 
