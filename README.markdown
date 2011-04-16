@@ -7,7 +7,7 @@ Only [jfsh.sh](http://github.com/julien-f/jfsh).
 
 Just type the following line to test your current shell:
 
-	. shell-info.mv
+	. shell-info.sh
 
 Or test another shell:
 
@@ -40,7 +40,7 @@ And here are the results for “dash”:
 
 # Compatibility
 
-shll-info is POSIX compliant and has been tested with the following shells:
+shell-info is POSIX compliant and has been tested with the following shells:
 
 - bash
 - dash
