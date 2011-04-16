@@ -52,7 +52,9 @@
 		'${VAR/pattern/string}' \
 		'${VAR^pattern}' '${VAR^^pattern}' \
 		'${VAR,pattern}' '${VAR,,pattern}' \
-		'${VAR:1}' '${VAR:1:1}'
+		'${VAR:1}' '${VAR:1:1}' \
+		'' \
+		'$([[ $VAR == * ]])' '$([[ $VAR =~ . ]])'
 	do
 		# If $feature is empty, it means we have to display a separator.
 		if ! [ "$feature" ]
