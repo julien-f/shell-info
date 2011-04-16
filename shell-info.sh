@@ -1,19 +1,18 @@
 # Imports jfsh.sh
-. jfsh.sh || {
-	echo "jfsh.sh is required!!!" >&2
-	exit 1
-}
+. jfsh.sh || exit 1
 
 # If colors are available, defines these variables.
-if have tput && silence tput setaf 1
+if silence2 'col_ok=$(tput setaf 2)'
 then
-	col_ok=$(tput setaf 2)
 	col_nok=$(tput setaf 1)
 	col_res=$(tput op)
 fi
 
 # Defines this variable which makes the cursor to jump to the 30th column.
-col_shift=$(tput hpa 30)
+if ! silence2 'col_shift=$(tput hpa 30)'
+then
+	col_shift=$(printf '\t')
+fi
 
 # Helper to test a feature.
 test_feature()
