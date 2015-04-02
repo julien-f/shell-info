@@ -1,17 +1,17 @@
 # Runs everything in a subshell to preserve the environment.
 (
 	# Imports jfsh.sh
-	. jfsh.sh || exit 1
+	. psl.sh || exit 1
 
 	# If colors are available, defines these variables.
-	if silence2 'col_ok=$(tput setaf 2)'
+	if col_ok=$(tput setaf 2) 2> /dev/null
 	then
 		col_nok=$(tput setaf 1)
 		col_res=$(tput op)
 	fi
 
 	# Defines this variable which makes the cursor to jump to the 30th column.
-	if ! silence2 'col_shift=$(tput hpa 30)'
+	if ! col_shift=$(tput hpa 30) 2> /dev/null
 	then
 		col_shift=$(printf '\t')
 	fi
@@ -21,14 +21,14 @@
 	{
 		printf '%s' "$1$col_shift"
 
-		if have_feature "$1"
+		if psl_has_feature "$1"
 		then
 			printf '%s' "${col_ok}yes"
 		else
 			printf '%s' "${col_nok}no"
 		fi
 
-		write_lines "$col_res"
+		psl_println "$col_res"
 	}
 
 	# Defines VAR because an empty string makes the '${VAR:?word}' test failed.
@@ -59,7 +59,7 @@
 		# If $feature is empty, it means we have to display a separator.
 		if ! [ "$feature" ]
 		then
-			write_lines '--'
+			psl_println '--'
 		else
 			test_feature "$feature"
 		fi

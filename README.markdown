@@ -1,6 +1,6 @@
 # Requirements
 
-Only [jfsh.sh](http://github.com/julien-f/jfsh).
+Only [psl.sh](http://github.com/julien-f/psl).
 
 
 # How to use it?
